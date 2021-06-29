@@ -6,7 +6,7 @@ define('PUBLIC_PATH', __DIR__);
 define('LOG_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR);
 require_once 'lib/Render.php';
 try {
-    $path = filter_input(INPUT_SERVER, 'REQUESDT_URI', FILTER_SANITIZE_STRING);
+    $path = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL);
     $render = new Render($path);
     echo $render->content();
 } catch (\Exception $exc) {

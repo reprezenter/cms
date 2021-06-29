@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="<?php echo $api->langShort(); ?>">
+    <head>
+        <meta name="robots" content="index, follow">
+        <meta charset="utf-8">
+        <title><?php echo $api->getTemplateVars('title'); ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">        
+        <meta name="description" content="<?php echo $api->getTemplateVars('description'); ?>">
+        <link href="css/main.css" media="screen" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="contentWrapper">
+            <div clas="header">
+                <div class="logo">
+                    <a href="<?php echo $api->getConfig()['baseUrl']; ?>" title="<?php echo $api->getConfig()['defaultPageTitle']; ?>"><?php echo $api->getConfig()['baseUrl']; ?></span></a>
+                </div>    
+                <a class="hamburger" href="#"><img  src="/img/hamburger.png" alt="menu" /></a>
+                <div class="menu">                
+                    <ul>
+                        <li><a title="O nas" href="/o-nas.html"/>O nas</a></li>
+                        <li><a title="Oferta" href="/oferta.html"/>Oferta</a></li>
+                        <li><a title="Katalog" href="/katalog.html"/>Katalog</a></li>
+                        <li><a title="Kontakt" href="/kontakt.html"/>Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="banner"></div>
+            </div>
+            <div class="content">
+                <?php include $api->getTemplate(); ?>
+            </div>
+            <div class="footer">
+                <p class="copy">Copyright <?php echo date('Y'); ?> <?php echo $api->getConfig()['defaultPageTitle']; ?></p>
+                <div class="footerMenu">                
+                    <ul>
+                        <li><a title="Oferta" href="/oferta.html"/>Oferta</a></li>
+                        <li><a title="Katalog" href="/katalog.html"/>Katalog</a></li>
+                        <li class="last"><a title="Kontakt" href="/kontakt.html"/>Kontakt</a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <p class="developed"><a href="https://www.reprezenter.pl/" target="_blank">reprezenter CMS</a></p>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </body>
+
+</html>
