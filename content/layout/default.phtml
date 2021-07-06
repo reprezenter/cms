@@ -9,16 +9,19 @@
         <meta name="description" content="<?php echo $api->getTemplateVars('description'); ?>">
         <link href="css/main.css" media="screen" rel="stylesheet" type="text/css">
 
-        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <div class="contentWrapper">
             <div clas="header">
                 <div class="logo">
-                    <a href="<?php echo $api->getConfig()['baseUrl']; ?>" title="<?php echo $api->getConfig()['defaultPageTitle']; ?>"><?php echo $api->getConfig()['baseUrl']; ?></span></a>
+                    <a href="<?php echo $api->getConfig()['baseUrl']; ?>" 
+                       title="<?php echo $api->getConfig()['defaultPageTitle']; ?>">
+                        <span></span> <?php echo $api->getConfig()['defaultPageTitle']; ?>
+                    </a>
                 </div>    
-                <a class="hamburger" href="#"><img  src="/img/hamburger.png" alt="menu" /></a>
+                <a class="hamburger" href="#"><img  src="img/hamburger.png" alt="menu" /></a>
                 <div class="menu">                
                     <ul>
                         <li><a title="O nas" href="/o-nas.html"/>O nas</a></li>
@@ -28,13 +31,15 @@
                     </ul>
                 </div>
                 <div class="clear"></div>
-                <div class="banner"></div>
+                <div class="banner">
+
+                </div>
             </div>
             <div class="content">
                 <?php include $api->getTemplate(); ?>
             </div>
             <div class="footer">
-                <p class="copy">Copyright <?php echo date('Y'); ?> <?php echo $api->getConfig()['defaultPageTitle']; ?></p>
+                <p class="copy">Copyright &copy; <?php echo date('Y'); ?> <?php echo $api->getConfig()['defaultPageTitle']; ?></p>
                 <div class="footerMenu">                
                     <ul>
                         <li><a title="Oferta" href="/oferta.html"/>Oferta</a></li>
@@ -47,6 +52,14 @@
                 <div class="clear"></div>
             </div>
         </div>
+        <script src="js/main.js"></script>
+        <script src="js/cookiesPrivacyPolicy.js"></script>
+        <script>
+            cookiesPrivacyPolicy.init({
+                message: "<?php echo $api->t('Używając tej strony akceptujesz użycie plików Cookie') . ' <a href=\"' . $api->langPrefix(true) . '/ciasteczka.html' . '\">' . $api->t('kliknij tu po więcej informacji na ten temat.') . '</a> ' . $api->t('Możesz zablokować zapisywanie plików Cookie w swojej przeglądarce.'); ?>",
+                placement: 'append'
+            });
+        </script>
     </body>
 
 </html>
