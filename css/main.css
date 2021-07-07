@@ -163,6 +163,7 @@ body{
 }
 .contentWrapper .content ul{
     list-style: none;
+    margin-bottom: 20px;
 }
 .contentWrapper .content ul li{
     margin: 0 0 10px 0; 
