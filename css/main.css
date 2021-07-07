@@ -1,4 +1,3 @@
-@charset 'UTF-8';
 /* reset */
 * {
     margin:0px;
@@ -58,6 +57,10 @@ body{
 }
 .hamburger{
     display: none;
+}
+.hamburger img{
+    width:60px;
+    height:60px;
 }
 .menu{
     float: right;
