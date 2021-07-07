@@ -85,6 +85,8 @@ body{
 .contentWrapper .content{
     min-height: 600px;
     padding: 20px;
+    background: #f3f3f3;
+    border-bottom: 4px solid #2e84ef;
 }
 .banner{
     width: 100%;
@@ -92,7 +94,6 @@ body{
 }
 /* footer */
 .footer{
-    background: #2e84ef;
     background: #53c28b;
     padding: 20px 10px;
     text-align: center;
