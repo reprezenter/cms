@@ -1,8 +1,8 @@
 # cms
 simplest PHP CMS
 
-no database required
-supports templates, seo, multinalguages
+no database required<br/>
+supports templates, seo, multinalguages<br/>
 wery fast and simple
 
 working example:<br/>
