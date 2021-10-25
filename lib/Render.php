@@ -60,7 +60,9 @@ class Render {
         $api->setTemplateVars($fileVars);
         ob_end_clean();
         ob_start();
-        if (!strpos($filename, 'ajax')) {
+        if (strpos($filename, 'ajax')) {
+            include PUBLIC_PATH . '/content/layout/empty.phtml';
+        } else {
             include PUBLIC_PATH . '/content/layout/default.phtml';
         }
         ob_end_flush();
