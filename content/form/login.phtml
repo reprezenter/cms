@@ -1,0 +1,13 @@
+<form name="<?php echo basename(__FILE__, '.phtml'); ?>" method="POST" action="">
+    <div class="formElement">
+        <label><?php echo $api->t('email'); ?></label>
+        <input type="text" name="email" />
+    </div>
+    <div class="formElement">
+        <label><?php echo $api->t('hasło'); ?></label>
+        <input type="password" name="password" />
+    </div>
+    <div class="formElement">
+        <input type="submit" value="<?php echo $api->t('Zaloguj'); ?>" name="<?php echo basename(__FILE__, '.phtml'); ?>" />
+    </div>
+</form>

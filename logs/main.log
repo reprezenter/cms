@@ -1,0 +1,21 @@
+2021-11-18 09:28:08:
+ErrorException: Function registerFormSubmitted not implemented in D:\wamp\www\cms\model\Api.php:113
+Stack trace:
+#0 D:\wamp\www\cms\content\_rejestracja.phtml(1): Api->form('register')
+#1 D:\wamp\www\cms\lib\Render.php(50): require_once('D:\\wamp\\www\\cms...')
+#2 D:\wamp\www\cms\index.php(11): Render->content()
+#3 {main}2021-11-18 09:30:04:
+ErrorException: Function registerFormSubmitted not implemented in D:\wamp\www\cms\model\Api.php:113
+Stack trace:
+#0 D:\wamp\www\cms\content\_rejestracja.phtml(1): Api->form('register')
+#1 D:\wamp\www\cms\lib\Render.php(50): require_once('D:\\wamp\\www\\cms...')
+#2 D:\wamp\www\cms\index.php(12): Render->content()
+#3 {main}2021-11-18 09:50:23:
+ErrorException: Validator class Email not exist in D:\wamp\www\cms\model\Api.php:173
+Stack trace:
+#0 D:\wamp\www\cms\model\Api.php(141): Api->validateValue('', 'Email')
+#1 D:\wamp\www\cms\model\Api.php(109): Api->formValidate('register')
+#2 D:\wamp\www\cms\content\_rejestracja.phtml(1): Api->form('register')
+#3 D:\wamp\www\cms\lib\Render.php(50): require_once('D:\\wamp\\www\\cms...')
+#4 D:\wamp\www\cms\index.php(12): Render->content()
+#5 {main}

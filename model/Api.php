@@ -105,4 +105,118 @@ class Api {
         return $string;
     }
 
+    public function form($name) {
+        $this->formError = array($name => array());
+        if ($this->formSubmitted($name) && $this->formValidate($name)) {
+
+            require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'Form.php';
+            $form = new Form($this);
+            if (method_exists('Form', $name . 'FormSubmitted')) {
+                $form->{$name . 'FormSubmitted'}();
+            } else {
+                throw new ErrorException('Function ' . $name . 'FormSubmitted not implemented');
+            }
+        } else {
+            $api = $this;
+            $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . $name . '.phtml';
+            include ($filename);
+        }
+    }
+
+    public function formSubmitted($name) {
+        if (isset($this->params['post'][$name])) {
+            return 'post';
+        } if (isset($this->params['get'][$name])) {
+            return 'get';
+        }
+        return false;
+    }
+
+    public function getFormConfig() {
+        return include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
+    }
+
+    public function getFormData($name, $filedName = false) {
+        if ($this->formSubmitted($name) && isset($this->params[$this->formSubmitted($name)])) {
+            if ($filedName) {
+                if (isset($this->params[$this->formSubmitted($name)][$filedName])) {
+                    return $this->params[$this->formSubmitted($name)][$filedName];
+                }
+                return '';
+            }
+            return $this->params[$this->formSubmitted($name)];
+        }
+        if ($filedName) {
+            return '';
+        }
+        return array();
+    }
+
+    public function formValidate($name) {
+        $this->filterForm($name);
+        $isValid = true;
+        $config = $this->getFormConfig();
+        if (isset($config[$name]['validator']) && is_array($config[$name]['validator'])) {
+            $validators = $config[$name]['validator'];
+            $data = $this->getFormData($name);
+            foreach ($data as $key => $value) {
+                if (array_key_exists($key, $validators)) {
+                    foreach ($validators[$key] as $validatorName) {
+                        $val = $this->getFormData($name)[$key];
+                        $fildValid = $this->validateValue($val, $key, $name, $validatorName);
+
+                        if ($fildValid !== true) {
+                            $isValid = false;
+                            $this->formError[$name][$key][] = $fildValid;
+                        }
+                    }
+                }
+            }
+        }
+        return $isValid;
+    }
+
+    public function getFormErrors($formName, $filedName = false) {
+        if ($filedName) {
+            if (isset($this->formError[$formName][$filedName])) {
+                return $this->formError[$formName][$filedName];
+            }
+            return false;
+        }
+
+        return $this->formError[$formName];
+    }
+
+    public function filterForm($name) {
+        $config = include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
+        if (isset($config[$name]['filter']) && is_array($config[$name]['filter'])) {
+            $filters = $config[$name]['filter'];
+            $data = $this->getFormData($name);
+            foreach ($data as $key => $value) {
+                if (array_key_exists($key, $filters)) {
+                    foreach ($filters[$key] as $filterName) {
+                        $this->getFormData($name)[$key] = $this->filterValue($this->params[$this->formSubmitted($name)][$key], $filterName);
+                    }
+                }
+            }
+        }
+    }
+
+    public function filterValue($value, $filerName) {
+        require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'Filter' . DIRECTORY_SEPARATOR . $filerName . '.php';
+        $filter = new $filerName();
+        return $filter->filter($value);
+    }
+
+    public function validateValue($value, $name, $formName, $validatorName) {
+        $classPath = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'Validator' . DIRECTORY_SEPARATOR . $validatorName . '.php';
+        if (!file_exists($classPath)) {
+            throw new ErrorException('Validator class ' . $validatorName . ' not exist');
+        }
+        require_once $classPath;
+        $validator = new $validatorName();
+
+        return $validator->validate($value, $name, $formName, $this);
+    }
+
 }

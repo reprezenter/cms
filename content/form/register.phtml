@@ -1,0 +1,27 @@
+<?php $name = basename(__FILE__, '.phtml'); ?>
+<form name="<?php echo $name; ?>" method="POST" action="">
+    <div class="formElement">
+        <label><?php echo $api->t('email'); ?></label>
+        <input type="text" name="email" value="<?php echo $api->getFormData($name, 'email'); ?>" />
+        <?php if ($api->getFormErrors($name, 'email')): ?>
+            <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'email')); ?></div>
+        <?php endif; ?>
+    </div>
+    <div class="formElement">
+        <label><?php echo $api->t('hasło'); ?></label>
+        <input type="password" name="password" value="<?php echo $api->getFormData($name, 'password'); ?>" />
+        <?php if ($api->getFormErrors($name, 'password')): ?>
+                   <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'password')); ?></div>
+        <?php endif; ?>
+</div>
+<div class="formElement">
+    <label><?php echo $api->t('hasło ponownie'); ?></label>
+    <input type="password" name="password_confirm" value="<?php echo $api->getFormData($name, 'password_confirm'); ?>" />
+    <?php if ($api->getFormErrors($name, 'password_confirm')): ?>
+               <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'password_confirm')); ?></div>
+    <?php endif; ?>
+</div>
+<div class="formElement">
+    <input type="submit" value="<?php echo $api->t('Zarejestruj'); ?>" name="<?php echo $name; ?>"/>
+</div>
+</form>

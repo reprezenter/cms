@@ -36,8 +36,7 @@ class Render {
                 $file = fopen($path, "w");
                 echo fwrite($file, '<h1></h1>' . PHP_EOL . '<p></p>');
                 fclose($file);
-            }
-            die($filename);
+            }            
             http_response_code(404);
             include('404.php');
             die();
