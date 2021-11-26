@@ -35,9 +35,11 @@
                 <div class="banner">
 
                 </div>
+                <?php echo $api->getAuthTemplate(); ?>
             </div>
             <div class="content">
-                <?php include $api->getTemplate(); ?>
+                <?php echo $api->getSessionMsgTemplate(); ?>
+                <?php echo $api->getTemplate(); ?>
             </div>
             <div class="footer">
                 <p class="copy">Copyright &copy; <?php echo date('Y'); ?> <?php echo $api->getConfig()['defaultPageTitle']; ?></p>

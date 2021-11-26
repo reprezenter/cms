@@ -2,6 +2,18 @@
 
 class Api {
 
+    protected $config;
+    protected $connection;
+    protected $params;
+    protected $path;
+    protected $template;
+    protected $templateVars;
+    protected $langFile;
+    protected $sessionMsgTemplate;
+    protected $authTemplate;
+    protected $formError;
+    protected $auth;
+
     public function __construct() {
         $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'config.php';
         require $filename;
@@ -13,6 +25,11 @@ class Api {
                 $this->config[$varName] = ${$varName};
             }
         }
+        if (isset($this->config['dbHost'])) {
+            $this->connection = new \PDO('mysql:host=' . $this->config['dbHost'] . ';dbname=' . $this->config['dbName'] . ';charset=utf8', $this->config['dbUser'], $this->config['dbPassword']);
+        }
+        $this->sessionMsgTemplate = $this->config['sessionMsgTemplate'];
+        $this->authTemplate = $this->config['authTemplate'];
     }
 
     public function setParams($params) {
@@ -28,7 +45,8 @@ class Api {
     }
 
     public function getTemplate() {
-        return $this->template;
+        $api = $this;
+        include $this->template;
     }
 
     public function setTemplate($template) {
@@ -41,6 +59,10 @@ class Api {
 
     public function getConfig() {
         return $this->config;
+    }
+
+    public function getConnection() {
+        return $this->connection;
     }
 
     public function setTemplateVars($templateVars) {
@@ -107,12 +129,13 @@ class Api {
 
     public function form($name) {
         $this->formError = array($name => array());
-        if ($this->formSubmitted($name) && $this->formValidate($name)) {
+        if ($this->formSubmitted($name) && $this->formValidate($name) && !property_exists('Api', $name . 'formHandled')) {
 
             require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'Form.php';
             $form = new Form($this);
             if (method_exists('Form', $name . 'FormSubmitted')) {
                 $form->{$name . 'FormSubmitted'}();
+                $this->{$name . 'formHandled'} = true;
             } else {
                 throw new ErrorException('Function ' . $name . 'FormSubmitted not implemented');
             }
@@ -219,4 +242,32 @@ class Api {
         return $validator->validate($value, $name, $formName, $this);
     }
 
+    public function addSessionMsg($text, $type) {
+        if (is_array($_SESSION['popupMsg'])) {
+            $_SESSION['popupMsg'][] = array('text' => $text, 'type' => $type);
+        } else {
+            $_SESSION['popupMsg'] = arraty(array('text' => $text, 'type' => $type));
+        }
+    }
+
+    public function removeSessionMsg($key) {
+        if (isset($_SESSION['popupMsg'][$key])) {
+            unset($_SESSION['popupMsg'][$key]);
+        }
+    }
+
+    public function getSessionMsgTemplate() {
+        $messages = $_SESSION['popupMsg'];
+        $api = $this;
+        include $this->sessionMsgTemplate;
+    }
+
+    public function getAuth() {
+        require_once 'Auth.php';
+        return Auth::getInstance($this);
+    }
+    public function getAuthTemplate() {
+        $api = $this;
+        include $this->authTemplate;
+    }
 }
