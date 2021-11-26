@@ -10,4 +10,5 @@ $dbUser = 'root';
 $dbPassword = '';
 $sessionMsgTemplate = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' .DIRECTORY_SEPARATOR . 'partial' . DIRECTORY_SEPARATOR . 'sessionMsg.phtml';
 $authTemplate = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' .DIRECTORY_SEPARATOR . 'partial' . DIRECTORY_SEPARATOR . 'auth.phtml';
+$authAllowedUrl = array();
 

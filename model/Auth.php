@@ -15,6 +15,21 @@ class Auth {
 
     public function __construct($api) {
         $this->api = $api;
+        $urlAllowed = array_map(function($v) {
+            return str_replace('.html', '', $v);
+        }, $this->urlAllowed());
+        $url = ltrim(str_replace(array($this->api->getConfig()['rootFolder'], '.html'), '', $_SERVER['REQUEST_URI']), '/');
+
+        if (!$this->hasIdentity() && !is_numeric(array_search($url, $urlAllowed))) {
+            $this->api->addSessionMsg($this->api->t('Log in'), 'success');
+            header('Location: /' . $this->api->getConfig()['rootFolder'] . '/login.html');
+            die();
+        }
+        if ($this->hasIdentity() && is_numeric(array_search($url, $urlAllowed))) {
+            $this->api->addSessionMsg($this->api->t('Already logged in'), 'success');
+            header('Location: /' . $this->api->getConfig()['rootFolder'] . '/');
+            die();
+        }
     }
 
     protected function __clone() {
@@ -23,6 +38,13 @@ class Auth {
 
     public function __wakeup() {
         throw new \Exception('Cannot unserialize a singleton.');
+    }
+
+    public function urlAllowed() {
+        if (isset($this->api->getConfig()['authAllowedUrl']) && is_array($this->api->getConfig()['authAllowedUrl'])){
+            return $this->api->getConfig()['authAllowedUrl'];
+        }
+        return array();
     }
 
     public function authenticate(array $data) {
