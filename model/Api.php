@@ -246,7 +246,7 @@ class Api {
         if (is_array($_SESSION['popupMsg'])) {
             $_SESSION['popupMsg'][] = array('text' => $text, 'type' => $type);
         } else {
-            $_SESSION['popupMsg'] = arraty(array('text' => $text, 'type' => $type));
+            $_SESSION['popupMsg'] = array(array('text' => $text, 'type' => $type));
         }
     }
 
