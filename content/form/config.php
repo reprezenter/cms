@@ -1,6 +1,7 @@
 <?php
 
-return array('register' => array(
+return array(
+    'register' => array(
         'filter' => array(
             'email' => array('StripTags'),
         ),
@@ -17,5 +18,16 @@ return array('register' => array(
         'filter' => array(
             'email' => array('StripTags'),
         ),
-        'validator' => array())
+        'validator' => array()),
+    'contact' => array(
+        'filter' => array(
+            'email' => array('StripTags'),
+        ),
+        'validator' => array(
+            'email' => array('Required', 'Email'),
+            'name' => array('Required'),
+            'content' => array('Required'),
+            'accept' => array('Required'),
+        ),
+    ),
 );

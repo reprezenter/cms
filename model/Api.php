@@ -202,7 +202,11 @@ class Api {
     public function getFormErrors($formName, $filedName = false) {
         if ($filedName) {
             if (isset($this->formError[$formName][$filedName])) {
-                return $this->formError[$formName][$filedName];
+                $fieldErrors = $this->formError[$formName][$filedName];
+                if (is_array($fieldErrors) && count($fieldErrors) > 1) {
+                    return array(reset($fieldErrors));
+                }
+                return $fieldErrors;
             }
             return false;
         }
@@ -266,8 +270,10 @@ class Api {
         require_once 'Auth.php';
         return Auth::getInstance($this);
     }
+
     public function getAuthTemplate() {
         $api = $this;
         include $this->authTemplate;
     }
+
 }

@@ -36,4 +36,12 @@ class Form {
         }
     }
 
+    public function contactFormSubmitted() {
+        $formData = $this->api->getFormData('contact');
+        $ok = $this->api->getAuth()->authenticate($formData);
+        $this->api->addSessionMsg($this->api->t('Wiadomość wysłana pomyślnie'), 'success');
+        header('Location: /' . $this->api->getConfig()['rootFolder'] . '/kontakt.html');
+        die();
+    }
+
 }

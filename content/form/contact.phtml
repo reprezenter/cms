@@ -1,0 +1,34 @@
+<form name="<?php echo basename(__FILE__, '.phtml'); ?>" method="POST" action="">
+    <div class="formElement">
+        <label><?php echo $api->t('Imie i Nazwisko'); ?></label>
+        <input type="text" name="name" value="<?php echo $api->getFormData($name, 'name'); ?>" />
+        <?php if ($api->getFormErrors($name, 'name')): ?>
+            <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'name')); ?></div>
+        <?php endif; ?>
+    </div>
+    <div class="formElement">
+        <label><?php echo $api->t('E-mail'); ?></label>
+        <input type="text" name="email" value="<?php echo $api->getFormData($name, 'email'); ?>" />
+        <?php if ($api->getFormErrors($name, 'email')): ?>
+            <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'email')); ?></div>
+        <?php endif; ?>
+    </div>
+    <div class="formElement">
+        <label><?php echo $api->t('Wiadomość'); ?></label>
+        <textarea name="content"><?php echo $api->getFormData($name, 'content'); ?></textarea>
+        <?php if ($api->getFormErrors($name, 'content')): ?>
+            <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'content')); ?></div>
+        <?php endif; ?>
+    </div>
+    <div class="formElement">        
+        <input type="hidden" name="accept" value="" />
+        <input type="checkbox" name="accept" id="accept" value="1" />        
+        <label for="accept" class="checboxLabel"><?php echo $api->t('tak, zapoznałem się z Polityką prywatności i zgadzam się na przetwarzanie danych osobowych'); ?></label>
+        <?php if ($api->getFormErrors($name, 'accept')): ?>
+            <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'accept')); ?></div>
+        <?php endif; ?>
+    </div>
+    <div class="formElement">
+        <input type="submit" value="<?php echo $api->t('Wyślij'); ?>" name="<?php echo basename(__FILE__, '.phtml'); ?>" />
+    </div>
+</form>

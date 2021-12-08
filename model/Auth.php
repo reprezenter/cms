@@ -15,6 +15,8 @@ class Auth {
 
     public function __construct($api) {
         $this->api = $api;
+        if (count($this->urlAllowed()) === 0)
+            return true;
         $urlAllowed = array_map(function($v) {
             return str_replace('.html', '', $v);
         }, $this->urlAllowed());
@@ -41,7 +43,7 @@ class Auth {
     }
 
     public function urlAllowed() {
-        if (isset($this->api->getConfig()['authAllowedUrl']) && is_array($this->api->getConfig()['authAllowedUrl'])){
+        if (isset($this->api->getConfig()['authAllowedUrl']) && is_array($this->api->getConfig()['authAllowedUrl'])) {
             return $this->api->getConfig()['authAllowedUrl'];
         }
         return array();
