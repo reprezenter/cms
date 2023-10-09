@@ -1,8 +1,8 @@
 <?php if ($api->getAuth()->hasIdentity()): ?>
     <?php echo $api->getAuth()->getIdentity()['identity']; ?>
-    <a href="logout.html"><?php echo $api->t('wyloguj'); ?></a>
+    <a href="/logout.html"><?php echo $api->t('wyloguj'); ?></a>
 <?php else: ?>
-    <a href="login.html"><?php echo $api->t('zaloguj'); ?></a>
+    <a href="/login.html"><?php echo $api->t('zaloguj'); ?></a>
 <?php endif; ?>
 
 

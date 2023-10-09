@@ -3,6 +3,7 @@
 class Auth {
 
     const ROLE_ID_USER = 1;
+    const ROLE_ID_ADMIN = 2;
 
     private static $instance;
 

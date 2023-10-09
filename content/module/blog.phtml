@@ -1,0 +1,12 @@
+<?php $entry = $api->getModule('Blog')->getEntryByUrl() ?>
+<?php if ($entry): ?>
+    <?php var_dump($entry); ?>
+<?php else: ?>
+    <h1>Blog entries</h1>
+    <div classs="blogEntries">
+        <?php $entries = $api->getModule('Blog')->getEntries(); ?>
+        <?php foreach ($entries as $entry): ?>
+            <a href="/blog/<?php echo $entry['slug']; ?>"><?php echo $entry['title']; ?></a>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

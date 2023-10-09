@@ -152,7 +152,7 @@ form .formElement label.checboxLabel{
     width: calc(100% - 30px);
     margin: 0;
 }
-form .formElement input[type="text"]{
+form .formElement input[type="text"], form .formElement input[type="password"]{
     width: 100%;
     height: 26px;
     border: 1px solid #ccc;

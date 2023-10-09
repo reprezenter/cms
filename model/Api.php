@@ -276,4 +276,21 @@ class Api {
         include $this->authTemplate;
     }
 
+    public function getModules() {
+        $dir = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR;
+        $files = array_diff(scandir($dir), array('..', '.', 'AbstractModule.php'));
+        return $files;
+    }
+
+    public function addModule($className, $instance) {
+        $this->loadedModules[$className] = $instance;
+    }
+
+    public function getModule($className) {
+        if (array_key_exists($className, $this->loadedModules)) {
+            return $this->loadedModules[$className];
+        }
+        throw new Exception('Module named ' . $className . ' not loaded');
+    }
+
 }

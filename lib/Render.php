@@ -8,8 +8,8 @@ class Render {
         if ($rootFolder) {
             $path = str_replace($rootFolder, '', $path);
         }
-        $this->path = '/'. ltrim(rtrim($path, '/'), '/');
-        $this->api = new \Api();
+        $this->path = '/' . ltrim(rtrim($path, '/'), '/');
+        $this->api = new Api();
     }
 
     public function getApi() {
@@ -17,8 +17,39 @@ class Render {
     }
 
     public function content() {
-
-        $filename = PUBLIC_PATH . '/content/' . $this->getTemplateName();
+        $modules = $this->api->getModules();
+        $loadedModules = [];
+        $moduleRutes = [];
+        require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . 'AbstractModule.php';
+        foreach ($modules as $module) {
+            require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $module;
+            $className = str_replace('.php', '', $module);
+            $instance = new $className($this->api);
+            $moduleRutes += $instance->getRouteMatch();
+            $this->api->addModule($className, $instance);
+        }
+        $uri = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/');
+        if (strpos($uri, '/')) {
+            $moduleRoute = (explode('/', $uri))[0];
+        } else {
+            $moduleRoute = $uri;
+        }
+        if (is_numeric(array_search($moduleRoute, $moduleRutes))) {
+            $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleRoute;
+        } else {
+            $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $this->getTemplateName();
+        }
+        if (strpos($filename, 'admin')) {
+            if (!$this->api->getAuth()->hasIdentity()) {
+                header('Location: /login.html');
+            } else {
+                if ($this->api->getAuth()->getIdentity()['role_id'] != $this->api->getAuth()::ROLE_ID_ADMIN) {
+                    http_response_code(403);
+                    include('403.php');
+                    die();
+                }
+            }
+        }
         $params = array();
         if (strpos($filename, '?')) {
             $exploded = explode('?', $filename);
@@ -36,7 +67,7 @@ class Render {
                 $file = fopen($path, "w");
                 echo fwrite($file, '<h1></h1>' . PHP_EOL . '<p></p>');
                 fclose($file);
-            }            
+            }
             http_response_code(404);
             include('404.php');
             die();
@@ -61,6 +92,8 @@ class Render {
         ob_start();
         if (strpos($filename, 'ajax')) {
             include PUBLIC_PATH . '/content/layout/empty.phtml';
+        } elseif (strpos($filename, 'admin')) {
+            include PUBLIC_PATH . '/content/layout/admin.phtml';
         } else {
             include PUBLIC_PATH . '/content/layout/default.phtml';
         }
