@@ -4,4 +4,28 @@ Stack trace:
 #0 D:\wamp\www\cms\model\Api.php(17): PDO->__construct('mysql:host=loca...', 'root', '')
 #1 D:\wamp\www\cms\lib\Render.php(12): Api->__construct()
 #2 D:\wamp\www\cms\index.php(11): Render->__construct('//rejestracja.h...')
+#3 {main}2023-10-09 09:31:16:
+PDOException: SQLSTATE[HY000] [1049] Unknown database 'scms' in C:\xampp\htdocs\scms\model\Api.php:29
+Stack trace:
+#0 C:\xampp\htdocs\scms\model\Api.php(29): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\scms\lib\Render.php(12): Api->__construct()
+#2 C:\xampp\htdocs\scms\index.php(10): Render->__construct('/')
+#3 {main}2023-10-09 09:31:16:
+PDOException: SQLSTATE[HY000] [1049] Unknown database 'scms' in C:\xampp\htdocs\scms\model\Api.php:29
+Stack trace:
+#0 C:\xampp\htdocs\scms\model\Api.php(29): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\scms\lib\Render.php(12): Api->__construct()
+#2 C:\xampp\htdocs\scms\index.php(10): Render->__construct('/favicon.ico')
+#3 {main}2023-10-09 09:33:14:
+PDOException: SQLSTATE[HY000] [1049] Unknown database 'scms' in C:\xampp\htdocs\scms\model\Api.php:29
+Stack trace:
+#0 C:\xampp\htdocs\scms\model\Api.php(29): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\scms\lib\Render.php(12): Api->__construct()
+#2 C:\xampp\htdocs\scms\index.php(10): Render->__construct('/')
+#3 {main}2023-10-09 09:33:14:
+PDOException: SQLSTATE[HY000] [1049] Unknown database 'scms' in C:\xampp\htdocs\scms\model\Api.php:29
+Stack trace:
+#0 C:\xampp\htdocs\scms\model\Api.php(29): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue))
+#1 C:\xampp\htdocs\scms\lib\Render.php(12): Api->__construct()
+#2 C:\xampp\htdocs\scms\index.php(10): Render->__construct('/favicon.ico')
 #3 {main}

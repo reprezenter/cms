@@ -1,4 +1,4 @@
-<?php if (count($messages)): ?>
+<?php if ($messages && count($messages)): ?>
     <div class="sessionMsgContainter">
         <?php foreach ($messages as $key => $msg): ?>
             <p class="<?php echo $msg['type']; ?>"><?php echo $msg['text']; ?></p>
