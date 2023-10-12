@@ -1,0 +1,34 @@
+/*blog form */
+.imageGallery{
+    width: 100%;
+    position: relative;
+    margin: 0 0 20px 0;
+}
+.imageGallery img:first-of-type{
+    width: 150px !important;
+    cursor: pointer;
+    width: 100%;
+}
+.imageGallery img:nth-of-type(2){
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 30px;
+}
+.imageGallery .deleteImg img{
+    width: 20px !important;
+    height: 20px;
+}
+.imageGallery img.galleryLoadig{
+    width: 200px;
+    position: absolute;
+    right: 0;
+    border: none;
+}
+label[for="blog_form_image"]{
+    position: absolute;
+    left: -9990px;
+    position: static;
+}
+form .formElement.image{
+    display: none;
+}

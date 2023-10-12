@@ -18,7 +18,6 @@ class Render {
 
     public function content() {
         $modules = $this->api->getModules();
-        $loadedModules = [];
         $moduleRutes = [];
         require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . 'AbstractModule.php';
         foreach ($modules as $module) {
@@ -28,18 +27,28 @@ class Render {
             $moduleRutes += $instance->getRouteMatch();
             $this->api->addModule($className, $instance);
         }
-        $uri = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/');
+        $isAdmin = is_numeric(strpos($_SERVER['REQUEST_URI'], '/admin/'));
+        $url = str_replace('/admin/', '', $_SERVER['REQUEST_URI']);
+        $uri = ltrim(rtrim($url, '/'), '/');
         if (strpos($uri, '/')) {
-            $moduleRoute = (explode('/', $uri))[0];
+            $_moduleRoute = (explode('/', $uri))[0];
         } else {
-            $moduleRoute = $uri;
+            $_moduleRoute = $uri;
         }
+        $moduleRoute = str_replace(array('.html'), '', $_moduleRoute);
         if (is_numeric(array_search($moduleRoute, $moduleRutes))) {
-            $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleRoute;
+            if ($isAdmin) {
+                $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleRoute . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $this->getTemplateName([$moduleRoute]);
+            } else {
+                $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleRoute . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $moduleRoute;
+            }
         } else {
             $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $this->getTemplateName();
         }
-        if (strpos($filename, 'admin')) {
+        if (trim($_SERVER['REQUEST_URI'], '/') == 'admin') {
+            $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . '_admin';
+        }
+        if ($isAdmin) {
             if (!$this->api->getAuth()->hasIdentity()) {
                 header('Location: /login.html');
             } else {
@@ -90,9 +99,9 @@ class Render {
         $api->setTemplateVars($fileVars);
         ob_end_clean();
         ob_start();
-        if (strpos($filename, 'ajax')) {
+        if (strpos($filename, 'ajax')) {            
             include PUBLIC_PATH . '/content/layout/empty.phtml';
-        } elseif (strpos($filename, 'admin')) {
+        } elseif ($isAdmin) {
             include PUBLIC_PATH . '/content/layout/admin.phtml';
         } else {
             include PUBLIC_PATH . '/content/layout/default.phtml';
@@ -100,8 +109,14 @@ class Render {
         ob_end_flush();
     }
 
-    private function getTemplateName() {
-        return str_replace(array('/', '.html'), array('_', ''), $this->path);
+    private function getTemplateName($skip = []) {
+        $skip[] = 'admin';
+        $path = $this->path;
+        foreach ($skip as $part) {
+            $path = str_replace('/' . $part, '', $path);
+        }
+        $path = str_replace('.html', '', $path);
+        return str_replace(array('/'), array('_'), $path);
     }
 
 }

@@ -131,7 +131,14 @@ class Api {
         $this->formError = array($name => array());
         if ($this->formSubmitted($name) && $this->formValidate($name) && !property_exists('Api', $name . 'formHandled')) {
 
-            require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'Form.php';
+            if (strpos($name, 'module') == 0) {
+                $exploded = explode('_', $name);
+                $module = $exploded[1];
+                require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'Form.php';
+                $name = $exploded[2];
+            } else {
+                require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'Form.php';
+            }
             $form = new Form($this);
             if (method_exists('Form', $name . 'FormSubmitted')) {
                 $form->{$name . 'FormSubmitted'}();
@@ -141,7 +148,18 @@ class Api {
             }
         } else {
             $api = $this;
-            $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . $name . '.phtml';
+            if (strpos($name, 'module') == 0) {
+                $exploded = explode('_', $name);
+                $moduleName = $exploded[1];
+                $formName = $exploded[2];
+                $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleName . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . $formName . '.phtml';
+            } else {
+                $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . $name . '.phtml';
+            }
+
+            if (!file_exists($filename)) {
+                throw new \Exception('Form file not exists: ' . $filename);
+            }
             include ($filename);
         }
     }
@@ -155,11 +173,16 @@ class Api {
         return false;
     }
 
-    public function getFormConfig() {
-        return include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
+    public function getFormConfig($moduleName = false) {
+        if ($moduleName && strpos($moduleName, 'module') == 0) {
+            $module = explode('_', $moduleName)[1];
+            return include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
+        } else {
+            return include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
+        }
     }
 
-    public function getFormData($name, $filedName = false) {
+    public function getFormData($name, $filedName = false, $default = false) {
         if ($this->formSubmitted($name) && isset($this->params[$this->formSubmitted($name)])) {
             if ($filedName) {
                 if (isset($this->params[$this->formSubmitted($name)][$filedName])) {
@@ -168,6 +191,9 @@ class Api {
                 return '';
             }
             return $this->params[$this->formSubmitted($name)];
+        }
+        if ($default !== false) {
+            return $default;
         }
         if ($filedName) {
             return '';
@@ -178,7 +204,7 @@ class Api {
     public function formValidate($name) {
         $this->filterForm($name);
         $isValid = true;
-        $config = $this->getFormConfig();
+        $config = $this->getFormConfig($name);
         if (isset($config[$name]['validator']) && is_array($config[$name]['validator'])) {
             $validators = $config[$name]['validator'];
             $data = $this->getFormData($name);
@@ -278,7 +304,16 @@ class Api {
 
     public function getModules() {
         $dir = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR;
-        $files = array_diff(scandir($dir), array('..', '.', 'AbstractModule.php'));
+        if (!is_dir($dir)) {
+            return [];
+        }
+        $folderContent = scandir($dir);
+        $files = [];
+        foreach ($folderContent as $content) {
+            if (strpos($content, '.php') && $content != 'AbstractModule.php') {
+                $files[] = $content;
+            }
+        }
         return $files;
     }
 
@@ -291,6 +326,40 @@ class Api {
             return $this->loadedModules[$className];
         }
         throw new Exception('Module named ' . $className . ' not loaded');
+    }
+
+    public static function getSlug($mixed, $delimiter = '-') {
+        if (!$mixed) {
+            return 'address';
+        }
+
+        if (is_array($mixed)) {
+            $str = implode($delimiter, $mixed);
+        } else {
+            $str = $mixed;
+        }
+        $str = str_replace('+', 'plus', $str);
+
+        $ar = array('а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ы', 'э', 'ю', 'я', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ы', 'Э', 'Ю', 'Я');
+        $br = array('a', 'b', 'w', 'g', 'd', 'e', 'e', 'zh', 'z', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'kh', 'cz', 'ch', 'sh', 'sh', 'y', 'e', 'yu', 'ja', 'a', 'b', 'w', 'g', 'd', 'e', 'e', 'zh', 'z', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'kh', 'cz', 'ch', 'sh', 'sh', 'y', 'e', 'yu', 'ja');
+
+        $a = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ð', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ø', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'ß', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ø', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ', 'Ā', 'ā', 'Ă', 'ă', 'Ą', 'ą', 'Ć', 'ć', 'Ĉ', 'ĉ', 'Ċ', 'ċ', 'Č', 'č', 'Ď', 'ď', 'Đ', 'đ', 'Ē', 'ē', 'Ĕ', 'ĕ', 'Ė', 'ė', 'Ę', 'ę', 'Ě', 'ě', 'Ĝ', 'ĝ', 'Ğ', 'ğ', 'Ġ', 'ġ', 'Ģ', 'ģ', 'Ĥ', 'ĥ', 'Ħ', 'ħ', 'Ĩ', 'ĩ', 'Ī', 'ī', 'Ĭ', 'ĭ', 'Į', 'į', 'İ', 'ı', 'Ĳ', 'ĳ', 'Ĵ', 'ĵ', 'Ķ', 'ķ', 'Ĺ', 'ĺ', 'Ļ', 'ļ', 'Ľ', 'ľ', 'Ŀ', 'ŀ', 'Ł', 'ł', 'Ń', 'ń', 'Ņ', 'ņ', 'Ň', 'ň', 'ŉ', 'Ō', 'ō', 'Ŏ', 'ŏ', 'Ő', 'ő', 'Œ', 'œ', 'Ŕ', 'ŕ', 'Ŗ', 'ŗ', 'Ř', 'ř', 'Ś', 'ś', 'Ŝ', 'ŝ', 'Ş', 'ş', 'Š', 'š', 'Ţ', 'ţ', 'Ť', 'ť', 'Ŧ', 'ŧ', 'Ũ', 'ũ', 'Ū', 'ū', 'Ŭ', 'ŭ', 'Ů', 'ů', 'Ű', 'ű', 'Ų', 'ų', 'Ŵ', 'ŵ', 'Ŷ', 'ŷ', 'Ÿ', 'Ź', 'ź', 'Ż', 'ż', 'Ž', 'ž', 'ſ', 'ƒ', 'Ơ', 'ơ', 'Ư', 'ư', 'Ǎ', 'ǎ', 'Ǐ', 'ǐ', 'Ǒ', 'ǒ', 'Ǔ', 'ǔ', 'Ǖ', 'ǖ', 'Ǘ', 'ǘ', 'Ǚ', 'ǚ', 'Ǜ', 'ǜ', 'Ǻ', 'ǻ', 'Ǽ', 'ǽ', 'Ǿ', 'ǿ');
+        $b = array('A', 'A', 'A', 'A', 'A', 'A', 'AE', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'D', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'U', 'U', 'U', 'U', 'Y', 's', 'a', 'a', 'a', 'a', 'a', 'a', 'ae', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'n', 'o', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y', 'A', 'a', 'A', 'a', 'A', 'a', 'C', 'c', 'C', 'c', 'C', 'c', 'C', 'c', 'D', 'd', 'D', 'd', 'E', 'e', 'E', 'e', 'E', 'e', 'E', 'e', 'E', 'e', 'G', 'g', 'G', 'g', 'G', 'g', 'G', 'g', 'H', 'h', 'H', 'h', 'I', 'i', 'I', 'i', 'I', 'i', 'I', 'i', 'I', 'i', 'IJ', 'ij', 'J', 'j', 'K', 'k', 'L', 'l', 'L', 'l', 'L', 'l', 'L', 'l', 'l', 'l', 'N', 'n', 'N', 'n', 'N', 'n', 'n', 'O', 'o', 'O', 'o', 'O', 'o', 'OE', 'oe', 'R', 'r', 'R', 'r', 'R', 'r', 'S', 's', 'S', 's', 'S', 's', 'S', 's', 'T', 't', 'T', 't', 'T', 't', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'W', 'w', 'Y', 'y', 'Y', 'Z', 'z', 'Z', 'z', 'Z', 'z', 's', 'f', 'O', 'o', 'U', 'u', 'A', 'a', 'I', 'i', 'O', 'o', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'A', 'a', 'AE', 'ae', 'O', 'o');
+
+        $a = array_merge($ar, $a);
+        $b = array_merge($br, $b);
+
+        $str = str_replace($a, $b, $str);
+        $str = preg_replace('#[^a-z0-9]#is', ' ', $str);
+        $str = trim($str);
+        $str = preg_replace('#\s{2,}#', ' ', $str);
+        $str = str_replace(' ', $delimiter, $str);
+        $str = strtolower($str);
+
+        if (!$str) {
+            $str = 'address';
+        }
+        return $str;
     }
 
 }

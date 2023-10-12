@@ -6,7 +6,7 @@
     <div classs="blogEntries">
         <?php $entries = $api->getModule('Blog')->getEntries(); ?>
         <?php foreach ($entries as $entry): ?>
-            <a href="/blog/<?php echo $entry['slug']; ?>"><?php echo $entry['title']; ?></a>
+            <a href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['title']; ?></a>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
