@@ -1,29 +1,31 @@
+<?php $api->getModule('Blog')->delete(); ?>
 <?php $name = 'module_blog_edit'; ?>
+<?php $entry = $api->getModule('Blog')->getEntryByAdminUrl(); ?>
 <form name="<?php echo $name; ?>" method="POST" action="">
     <div class="formElement">
         <label><?php echo $api->t('Tyuł'); ?></label>
-        <input type="text" name="title" value="<?php echo $api->getFormData($name, 'title'); ?>" />
+        <input type="text" name="title" value="<?php echo $api->getFormData($name, 'title', $entry['title']); ?>" />
         <?php if ($api->getFormErrors($name, 'title')): ?>
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'title')); ?></div>
         <?php endif; ?>
     </div>
     <div class="formElement">
         <label><?php echo $api->t('Zajawka'); ?></label>
-        <textarea name="short_content"><?php echo $api->getFormData($name, 'short_content'); ?></textarea>
+        <textarea name="short_content"><?php echo $api->getFormData($name, 'short_content', $entry['short_content']); ?></textarea>
         <?php if ($api->getFormErrors($name, 'short_content')): ?>
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'short_content')); ?></div>
         <?php endif; ?>
     </div>
     <div class="formElement full">
         <label><?php echo $api->t('Treść'); ?></label>
-        <textarea class="wyswig" name="content"><?php echo $api->getFormData($name, 'content'); ?></textarea>
+        <textarea class="wyswig" name="content"><?php echo $api->getFormData($name, 'content', $entry['content']); ?></textarea>
         <?php if ($api->getFormErrors($name, 'content')): ?>
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'content')); ?></div>
         <?php endif; ?>
     </div>
     <div class="formElement">
         <label><?php echo $api->t('Kolejność (rosnąco)'); ?></label>
-        <input type="text" name="order_id" value="<?php echo $api->getFormData($name, 'order_id', 0); ?>" />
+        <input type="text" name="order_id" value="<?php echo $api->getFormData($name, 'order_id', $entry['order_id']); ?>" />
         <?php if ($api->getFormErrors($name, 'order_id')): ?>
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'order_id')); ?></div>
         <?php endif; ?>
@@ -31,7 +33,7 @@
 
     <div class="formElement image">
         <label for="blog_form_image">Zdjęcie</label>
-        <input type="file" name="image" class="uploader" data-url="/admin/blog/ajax/uploader.html?id=<?php echo $api->getModule('Blog')->getTmpId(); ?>&e_id=<?php echo $api->getModule('Blog')->getEntityId(); ?>" id="blog_form_image">
+        <input type="file" name="image" class="uploader" data-url="/admin/blog/ajax/uploader.html?id=<?php echo $entry['id'] ? $entry['id'] : $api->getModule('Blog')->getTmpId(); ?>&e_id=<?php echo $api->getModule('Blog')->getEntityId(); ?>" id="blog_form_image">
     </div>            
     <div class="imageGallery"><img src="/img/admin/upload.svg" /></div>
     <div class="formElement">

@@ -1,3 +1,17 @@
-<a href="/admin/blog/edit.html">Nowy wpis</a>
-<br/>
-List
+<a class="adminBtn" href="/admin/blog/edit.html">Nowy wpis</a>
+<br/><br/>
+<div classs="blogEntries">
+    <?php $entries = $api->getModule('Blog')->getEntries(); ?>
+    <?php foreach ($entries as $entry): ?>
+        <table class="adminTable">
+            <tr>
+                <td><img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" /></td>
+                <td><?php echo $entry['title']; ?></td>
+                <td>
+                    <a class="adminBtn" href="/admin/blog/edit.html?id=<?php echo $entry['id']; ?>">Edycja</a>
+                    <a class="adminBtn confirm" href="/admin/blog/edit.html?id=<?php echo $entry['id']; ?>&del=1">Usuń</a>
+                </td>
+            </tr>                                  
+        </table>                    
+    <?php endforeach; ?>
+</div>

@@ -1,12 +1,26 @@
+.contentWrapper .content a.adminBtn{
+    background: #ccc;
+    color: #000;
+    padding: 10px 20px;
+    display: inline-block;
+}
+.adminTable tr td{
+    min-width: 120px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.adminTable tr td img{
+    width: 100px;
+}
 /*blog form */
 form{
-    max-width: 100%;   
+    max-width: 100%;
 }
 form .formElement{
-    max-width: 600px   
+    max-width: 600px
 }
 form .formElement.full{
-    max-width: 100%;  
+    max-width: 100%;
 }
 .imageGallery{
     width: 100%;
@@ -17,6 +31,7 @@ form .formElement.full{
     width: 150px !important;
     cursor: pointer;
     width: 100%;
+    display: block;
 }
 .imageGallery img:nth-of-type(2){
     border: 1px solid #ccc;

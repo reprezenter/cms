@@ -156,7 +156,7 @@ class Image {
             $imagePath = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, ltrim($this->srcFileRelativePath, DIRECTORY_SEPARATOR));
             $imagePathExploded = explode(DIRECTORY_SEPARATOR, $imagePath);
             array_pop($imagePathExploded);
-            
+
             try {
                 $image = $this->createImageOnDemand();
                 if (self::IMAGE_PUBLIC_PATH) {
@@ -165,8 +165,7 @@ class Image {
                     $this->destFileRelativePath = implode('/', $imagePathExploded) . '/images/' . $image;
                 }
             } catch (\Exception $exc) {
-                $mime = self::getMimeType($imagePath);
-                $this->destFileRelativePath = '/sibelius/file/image/file/.' . implode('.', str_replace(array('/', '\\'), '.', $imagePathExploded)) . basename($imagePath) . '/contentType/' . str_replace('/', '.', $mime);
+                $this->destFileRelativePath = implode('/', $imagePathExploded) . '/images/' . $image;
             }
 
 
@@ -176,8 +175,11 @@ class Image {
             //}
             //$this->destFileRelativePath = '/sibelius/file/image/file/_' . implode('_', str_replace(array('/', '\\'), '_', $imagePathExploded)) . 'images_' . $image . '/contentType/image_' . $contentType;
         }
-
-        return $this->destFileRelativePath;
+        if (file_exists($this->getRootDirectoryAbsolutePath() . $this->destFileRelativePath)) {
+            return $this->destFileRelativePath;
+        } else{
+            return 'img/admin/noImage.png';
+        }
     }
 
     public function setDestFileRelativePath($destFileRelativePath) {
@@ -291,7 +293,7 @@ class Image {
         } else {
             //if original image exists
             if (file_exists($srcFileAbsolutePath) && is_file($srcFileAbsolutePath)) {
-                
+
                 call_user_func_array(
                         array($this, $this->options['type']), array($srcFileAbsolutePath, $imagesDirectoryAbsolutePath, $this->destFileName, $this->options)
                 );

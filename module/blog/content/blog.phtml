@@ -3,11 +3,14 @@
     <?php var_dump($entry); ?>
     <img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" />
 <?php else: ?>
-    <h1>Blog entries</h1>
     <div classs="blogEntries">
         <?php $entries = $api->getModule('Blog')->getEntries(); ?>
         <?php foreach ($entries as $entry): ?>
+        <div class="entry">
+            <a href="/blog/<?php echo $entry['slug']; ?>.html"><img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" alt="<?php echo $entry['title']; ?>" /></a>
             <a href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['title']; ?></a>
+            <a href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['short_content']; ?></a>            
+        </div>                      
         <?php endforeach; ?>
     </div>
 <?php endif; ?>

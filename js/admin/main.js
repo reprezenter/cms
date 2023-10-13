@@ -1,3 +1,9 @@
+$('.confirm').click(function (event) {
+    if (!confirm('Proszę potwierdzić operację')) {
+        event.preventDefault();
+    }
+});
+
 const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
@@ -107,7 +113,7 @@ var formUploader = {
                     var i = 0, len = this.files.length, img, reader, file;
                     var $this = $(this);
                     if (len) {
-                        gallery.html('<img class="uploadedBtn" src="/img/admin/uploaded.svg" /><img class="galleryLoadig" src="/common/images/loading.gif" />');
+                        gallery.html('<img class="uploadedBtn" src="/img/admin/uploaded.svg" /><img class="galleryLoadig" src="/img/admin/loading.gif" />');
                         $('.imageGallery img').unbind('click').click(function () {
                             $('label[for="blog_form_image"]').trigger('click');
                         });

@@ -11,7 +11,6 @@ class Blog extends AbstractModule {
     }
 
     public function getAllowRoute() {
-        return true;
         $_uri = $_SERVER['REQUEST_URI'];
         if (strpos($_uri, '?')) {
             $uri = explode('?', $_uri)[0];
@@ -66,6 +65,48 @@ class Blog extends AbstractModule {
         return $entry;
     }
 
+    public function getEntryByAdminUrl() {
+        $id = $this->api->getParams()['get']['id'];
+        $connection = $this->api->getConnection();
+        $statement = $connection->prepare("SELECT * FROM `blog` WHERE id = :id");
+        $statement->execute(array(':id' => $id));
+        $entry = $statement->fetch();
+        if ($entry) {
+            return $entry;
+        }
+        return [
+            'id' => '',
+            'title' => '',
+            'short_content' => '',
+            'content' => '',
+            'order_id' => '0',
+        ];
+    }
+
+    public function delete() {
+        if ($this->api->getParams()['get']['del']) {
+            $id = $this->api->getParams()['get']['id'];
+            $sql = "DELETE FROM `blog` WHERE id=?";
+            $stmt = $this->api->getConnection()->prepare($sql);
+            $stmt->execute([$id]);
+            $dstPath = PUBLIC_PATH . DIRECTORY_SEPARATOR . Image::ENTITY_FOLDER . Image::ENTITY_ID_BLOG . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR;
+            if (is_dir($dstPath)) {
+                Image::clearFolderContent($dstPath);
+            }
+            $dstPathImages = $dstPath . 'images' . DIRECTORY_SEPARATOR;
+            if (is_dir($dstPathImages)) {
+                Image::clearFolderContent($dstPathImages);
+                rmdir($dstPathImages);
+            }
+            if (is_dir($dstPath)) {
+                rmdir($dstPath);
+            }
+            $this->api->addSessionMsg($this->api->t('Usunięto'), 'success');
+            header('Location: /admin/blog/index.html');
+            die();
+        }
+    }
+
     public function getEntityId() {
         return Image::ENTITY_ID_BLOG;
     }
@@ -75,7 +116,7 @@ class Blog extends AbstractModule {
     }
 
     public function uploader() {
-
+        $entry = $this->getEntryByAdminUrl();
         $id = $this->api->getParams()['get']['id']; //resource id
         $entityType = $this->api->getParams()['get']['e_id']; //entity id
         if ((!$id || !$entityType) && !$this->api->getParams()['get']['del']) {
@@ -113,7 +154,7 @@ class Blog extends AbstractModule {
                     $image = new Image($relativePath);
                     $image->setOptions(array('type' => 'resize', 'width' => Image::ENTITY_1_IMAGE_WIDTH));
                     $images[] = array(
-                        'deleteUrl' => '/admin/blog/ajax/uploader.html?del=1&file=' . $file . '&id=' . $this->api->getModule('Blog')->getTmpId() . '&e_id=' . $this->api->getModule('Blog')->getEntityId(),
+                        'deleteUrl' => '/admin/blog/ajax/uploader.html?del=1&file=' . $file . '&id=' . ($entry['id'] ? $entry['id'] : $this->api->getModule('Blog')->getTmpId()) . '&e_id=' . $this->api->getModule('Blog')->getEntityId(),
                         'id' => $id,
                         'e_id' => $entityType,
                         'file' => $file,
