@@ -14,9 +14,9 @@
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'short_content')); ?></div>
         <?php endif; ?>
     </div>
-    <div class="formElement">
+    <div class="formElement full">
         <label><?php echo $api->t('Treść'); ?></label>
-        <textarea name="content"><?php echo $api->getFormData($name, 'content'); ?></textarea>
+        <textarea class="wyswig" name="content"><?php echo $api->getFormData($name, 'content'); ?></textarea>
         <?php if ($api->getFormErrors($name, 'content')): ?>
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'content')); ?></div>
         <?php endif; ?>

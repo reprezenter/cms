@@ -9,5 +9,9 @@ class AbstractModule {
     public function getRouteMatch() {
         return [];
     }
+    
+    public function getAllowRoute() {
+        return true;
+    }
 
 }

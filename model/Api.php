@@ -318,12 +318,13 @@ class Api {
     }
 
     public function addModule($className, $instance) {
-        $this->loadedModules[$className] = $instance;
+        $this->loadedModules[strtolower($className)] = $instance;
     }
 
     public function getModule($className) {
-        if (array_key_exists($className, $this->loadedModules)) {
-            return $this->loadedModules[$className];
+        $name = strtolower($className);
+        if (array_key_exists($name, $this->loadedModules)) {
+            return $this->loadedModules[$name];
         }
         throw new Exception('Module named ' . $className . ' not loaded');
     }

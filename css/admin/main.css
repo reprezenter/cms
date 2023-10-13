@@ -1,4 +1,13 @@
 /*blog form */
+form{
+    max-width: 100%;   
+}
+form .formElement{
+    max-width: 600px   
+}
+form .formElement.full{
+    max-width: 100%;  
+}
 .imageGallery{
     width: 100%;
     position: relative;

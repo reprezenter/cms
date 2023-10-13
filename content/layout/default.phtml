@@ -10,8 +10,8 @@
         <style>
 <?php echo file_get_contents('css/main.css'); ?>
         </style>
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <div class="contentWrapper">
@@ -22,7 +22,7 @@
                         <span></span> <?php echo $api->getConfig()['defaultPageTitle']; ?>
                     </a>
                 </div>    
-                <a class="hamburger" href="#"><img  src="img/hamburger.png" alt="menu" /></a>
+                <a class="hamburger" href="#"><img  src="/img/hamburger.png" alt="menu" /></a>
                 <div class="menu">                
                     <ul>
                         <li><a title="O nas" href="o-nas.html">O nas</a></li>
@@ -55,8 +55,8 @@
                 <div class="clear"></div>
             </div>
         </div>
-        <script src="js/main.js"></script>
-        <script src="js/cookiesPrivacyPolicy.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/cookiesPrivacyPolicy.js"></script>
         <script>
             cookiesPrivacyPolicy.init({
                 message: "<?php echo $api->t('Używając tej strony akceptujesz użycie plików Cookie') . ' <a href=\"' . $api->langPrefix(true) . 'ciasteczka.html' . '\">' . $api->t('kliknij tu po więcej informacji na ten temat.') . '</a> ' . $api->t('Możesz zablokować zapisywanie plików Cookie w swojej przeglądarce.'); ?>",

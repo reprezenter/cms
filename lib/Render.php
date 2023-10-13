@@ -36,7 +36,7 @@ class Render {
             $_moduleRoute = $uri;
         }
         $moduleRoute = str_replace(array('.html'), '', $_moduleRoute);
-        if (is_numeric(array_search($moduleRoute, $moduleRutes))) {
+        if (is_numeric(array_search($moduleRoute, $moduleRutes)) && $this->api->getModule($moduleRoute)->getAllowRoute()) {            
             if ($isAdmin) {
                 $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleRoute . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $this->getTemplateName([$moduleRoute]);
             } else {

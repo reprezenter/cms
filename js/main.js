@@ -20,5 +20,5 @@ function r(f) {
 }
 r(function () {
     rwd.init();
-        document.getElementsByClassName('banner')[0].style.background = "url('img/banner.jpg') top center no-repeat";
+        document.getElementsByClassName('banner')[0].style.background = "url('/img/banner.jpg') top center no-repeat";
 });

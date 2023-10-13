@@ -46,7 +46,7 @@ class Image {
      * sciezka absolutna do katalogu glownego
      * @var String
      */
-    private $rootDirectoryAbsolutePath = PUBLIC_PATH;
+    private $rootDirectoryAbsolutePath = PUBLIC_PATH . DIRECTORY_SEPARATOR;
 
     /**
      * sciezka absolutna do katalogu glownego dla publicznych obrazów
@@ -156,10 +156,11 @@ class Image {
             $imagePath = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, ltrim($this->srcFileRelativePath, DIRECTORY_SEPARATOR));
             $imagePathExploded = explode(DIRECTORY_SEPARATOR, $imagePath);
             array_pop($imagePathExploded);
+            
             try {
                 $image = $this->createImageOnDemand();
                 if (self::IMAGE_PUBLIC_PATH) {
-                    $this->destFileRelativePath = $imagePath;
+                    $this->destFileRelativePath = implode('/', $imagePathExploded) . '/images/' . $image;
                 } else {
                     $this->destFileRelativePath = implode('/', $imagePathExploded) . '/images/' . $image;
                 }
@@ -566,11 +567,11 @@ class Image {
     }
 
     //zamiast set srcFileRelativePath jeżeli plik jest tylko jeden w katalogu
-    public function scanFormSingleFile($relativePath) {
+    public function scanFormSingleFile($_relativePath) {
+        $relativePath = trim(trim($_relativePath, '/'), '\\');
         $this->setSrcFileRelativePath($relativePath);
         $fileName = false;
         $dir = $this->rootDirectoryAbsolutePath . $relativePath;
-
         if (is_dir($dir)) {
             $files = scandir($dir);
             foreach ($files as $file) {

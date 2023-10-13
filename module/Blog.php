@@ -10,6 +10,30 @@ class Blog extends AbstractModule {
         ];
     }
 
+    public function getAllowRoute() {
+        return true;
+        $_uri = $_SERVER['REQUEST_URI'];
+        if (strpos($_uri, '?')) {
+            $uri = explode('?', $_uri)[0];
+        } else {
+            $uri = $_uri;
+        }
+        $allowUri = [
+            '/blog/',
+            '/blog',
+            '/admin/blog/index.html',
+            '/admin/blog/edit.html',
+            '/admin/blog/ajax/uploader.html',
+        ];
+        if (is_numeric(array_search($uri, $allowUri))) {
+            return true;
+        }
+        if ($this->getEntryByUrl()) {
+            return true;
+        }
+        return false;
+    }
+
     public function getCategories() {
         $connection = $this->api->getConnection();
         $statement = $connection->prepare("SELECT * FROM `blog_category` ORDER BY `order_id` DESC");
@@ -89,7 +113,7 @@ class Blog extends AbstractModule {
                     $image = new Image($relativePath);
                     $image->setOptions(array('type' => 'resize', 'width' => Image::ENTITY_1_IMAGE_WIDTH));
                     $images[] = array(
-                        'deleteUrl' => '/admin/blog/ajax/uploader.html?del=1&file='. $file .'&id=' . $this->api->getModule('Blog')->getTmpId() . '&e_id=' . $this->api->getModule('Blog')->getEntityId(),
+                        'deleteUrl' => '/admin/blog/ajax/uploader.html?del=1&file=' . $file . '&id=' . $this->api->getModule('Blog')->getTmpId() . '&e_id=' . $this->api->getModule('Blog')->getEntityId(),
                         'id' => $id,
                         'e_id' => $entityType,
                         'file' => $file,
@@ -101,6 +125,13 @@ class Blog extends AbstractModule {
         return json_encode(array(
             $images
         ));
-    }   
+    }
+
+    public function getEntryImg($id) {
+        $image = new Image();
+        $relativePath = Image::ENTITY_FOLDER . $this->getEntityId() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR;
+        $image->setOptions(array('type' => 'resize', 'width' => Image::ENTITY_1_IMAGE_WIDTH));
+        return $image->scanFormSingleFile($relativePath);
+    }
 
 }
