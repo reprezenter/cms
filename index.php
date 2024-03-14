@@ -1,10 +1,12 @@
 <?php
 session_start();
-error_reporting(1);
-ini_set('display_errors', true);
 define('PUBLIC_PATH', __DIR__);
 define('LOG_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR);
-require_once 'lib/Render.php';
+error_reporting(E_ALL ^ E_DEPRECATED);
+ini_set('display_errors', '0'); 
+ini_set('log_errors', 1);
+ini_set("error_log", LOG_PATH . 'main.log');
+require_once 'library/Render.php';
 try {
     $path = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL);
     $render = new Render($path);

@@ -73,7 +73,7 @@ class Auth {
 
     public function logOut() {
         $_SESSION['user'] = null;
-        header('Location: /' . $this->api->getConfig()['rootFolder'] . '/');
+        header('Location: /' . $this->api->getConfig()['rootFolder']);
         die();
     }
 

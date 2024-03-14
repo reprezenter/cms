@@ -148,7 +148,7 @@ class Api {
             }
         } else {
             $api = $this;
-            if (strpos($name, 'module') == 0) {
+            if (strpos($name, 'module') === 0) {
                 $exploded = explode('_', $name);
                 $moduleName = $exploded[1];
                 $formName = $exploded[2];
@@ -256,13 +256,13 @@ class Api {
     }
 
     public function filterValue($value, $filerName) {
-        require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'Filter' . DIRECTORY_SEPARATOR . $filerName . '.php';
+        require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'Filter' . DIRECTORY_SEPARATOR . $filerName . '.php';
         $filter = new $filerName();
         return $filter->filter($value);
     }
 
     public function validateValue($value, $name, $formName, $validatorName) {
-        $classPath = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'Validator' . DIRECTORY_SEPARATOR . $validatorName . '.php';
+        $classPath = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'library' . DIRECTORY_SEPARATOR . 'Validator' . DIRECTORY_SEPARATOR . $validatorName . '.php';
         if (!file_exists($classPath)) {
             throw new ErrorException('Validator class ' . $validatorName . ' not exist');
         }

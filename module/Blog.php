@@ -4,6 +4,8 @@ require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR .
 
 class Blog extends AbstractModule {
 
+    const PER_PAGE = 6;
+
     public function getRouteMatch() {
         return [
             'blog'
@@ -42,22 +44,32 @@ class Blog extends AbstractModule {
     }
 
     public function getEntries() {
+        $page = isset($this->api->getParams()['get']['page']) ? $this->api->getParams()['get']['page'] : 1;
+
         $connection = $this->api->getConnection();
-        $statement = $connection->prepare("SELECT * FROM `blog` ORDER BY `order_id` DESC");
+        $statement = $connection->prepare("SELECT * FROM `blog`ORDER BY `order_id` DESC, `id` ASC");
         $statement->execute(array());
-        $categories = $statement->fetchAll();
-        return $categories;
+        $allEntries = $statement->fetchAll();
+
+        $pages = array_chunk($allEntries, self::PER_PAGE);
+        return array(
+            'paginator' => isset($pages[$page - 1]) ? $pages[$page - 1] : array(),
+            'pagesCount' => count($pages),
+            'currentPage' => $page,
+        );
     }
 
     public function getEntryByUrl() {
         $urlExploded = explode('/blog/', rtrim($_SERVER['REQUEST_URI'], '/'));
-        if (count($urlExploded) > 1) {
-            if (strpos($urlExploded[1], '.')) {
-                $slug = (explode('.', $urlExploded[1]))[0];
-            } else {
-                $slug = rtrim($urlExploded[1], '/');
-            }
+        if (count($urlExploded) <= 1) {
+            return array();
         }
+        if (strpos($urlExploded[1], '.')) {
+            $slug = (explode('.', $urlExploded[1]))[0];
+        } else {
+            $slug = rtrim($urlExploded[1], '/');
+        }
+
         $connection = $this->api->getConnection();
         $statement = $connection->prepare("SELECT * FROM `blog` WHERE slug = :slug");
         $statement->execute(array(':slug' => $slug));
@@ -84,7 +96,7 @@ class Blog extends AbstractModule {
     }
 
     public function delete() {
-        if ($this->api->getParams()['get']['del']) {
+        if (isset($this->api->getParams()['get']['del'])) {
             $id = $this->api->getParams()['get']['id'];
             $sql = "DELETE FROM `blog` WHERE id=?";
             $stmt = $this->api->getConnection()->prepare($sql);
@@ -141,7 +153,7 @@ class Blog extends AbstractModule {
                 }
             }
         }
-        if ($this->api->getParams()['get']['del']) {
+        if (isset($this->api->getParams()['get']['del'])) {
             unlink($dstPath . $this->api->getParams()['get']['file']);
             array_map('unlink', glob($dstPath . 'images' . DIRECTORY_SEPARATOR . '*'));
         }
@@ -152,7 +164,7 @@ class Blog extends AbstractModule {
                 if (!is_dir($dstPath . DIRECTORY_SEPARATOR . $file)) {
                     $relativePath = Image::ENTITY_FOLDER . $entityType . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . $file;
                     $image = new Image($relativePath);
-                    $image->setOptions(array('type' => 'resize', 'width' => Image::ENTITY_1_IMAGE_WIDTH));
+                    $image->setOptions(array('type' => 'resizeAndCrop', 'width' => Image::ENTITY_1_IMAGE_WIDTH_SMALL, 'height' => Image::ENTITY_1_IMAGE_HEIGHT_SMALL));
                     $images[] = array(
                         'deleteUrl' => '/admin/blog/ajax/uploader.html?del=1&file=' . $file . '&id=' . ($entry['id'] ? $entry['id'] : $this->api->getModule('Blog')->getTmpId()) . '&e_id=' . $this->api->getModule('Blog')->getEntityId(),
                         'id' => $id,
@@ -168,10 +180,15 @@ class Blog extends AbstractModule {
         ));
     }
 
-    public function getEntryImg($id) {
+    public function getEntryImg($id, $type = 'small') {
         $image = new Image();
         $relativePath = Image::ENTITY_FOLDER . $this->getEntityId() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR;
-        $image->setOptions(array('type' => 'resize', 'width' => Image::ENTITY_1_IMAGE_WIDTH));
+        if ($type == 'small'){
+            $image->setOptions(array('type' => 'resizeAndCrop', 'width' => Image::ENTITY_1_IMAGE_WIDTH_SMALL, 'height' => Image::ENTITY_1_IMAGE_HEIGHT_SMALL));
+        }
+        if ($type == 'big'){
+            $image->setOptions(array('type' => 'resizeAndCrop', 'width' => Image::ENTITY_1_IMAGE_WIDTH_BIG, 'height' => Image::ENTITY_1_IMAGE_HEIGHT_BIG));
+        }        
         return $image->scanFormSingleFile($relativePath);
     }
 

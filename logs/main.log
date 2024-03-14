@@ -4,4 +4,558 @@ Stack trace:
 #0 C:\xampp\htdocs\scms\module\blog\content\blog.phtml(1): Api->getModule('Blog')
 #1 C:\xampp\htdocs\scms\lib\Render.php(90): require_once('C:\\xampp\\htdocs...')
 #2 C:\xampp\htdocs\scms\index.php(11): Render->content()
-#3 {main}
+#3 {main}2023-10-16 09:50:28:
+PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 5 `order_id` DESC' at line 1 in C:\xampp\htdocs\scms\module\Blog.php:51
+Stack trace:
+#0 C:\xampp\htdocs\scms\module\Blog.php(51): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\scms\module\blog\content\_index.phtml(4): Blog->getEntries()
+#2 C:\xampp\htdocs\scms\lib\Render.php(90): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\scms\index.php(11): Render->content()
+#4 {main}2023-10-16 09:50:48:
+PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY `order_id` DESC' at line 1 in C:\xampp\htdocs\scms\module\Blog.php:51
+Stack trace:
+#0 C:\xampp\htdocs\scms\module\Blog.php(51): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\scms\module\blog\content\_index.phtml(4): Blog->getEntries()
+#2 C:\xampp\htdocs\scms\lib\Render.php(90): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\scms\index.php(11): Render->content()
+#4 {main}[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 98
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 99
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 100
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Implicit conversion from float -456.5 to int loses precision in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 297
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 98
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 99
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 100
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 98
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 99
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 100
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Implicit conversion from float 8.5 to int loses precision in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1408
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:01:47 Europe/Berlin] PHP Warning:  Undefined array key "create" in C:\xampp\htdocs\scms\lib\Render.php on line 79
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:01:49 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:02:08 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:03:19 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 98
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 99
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 100
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 98
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 99
+[16-Oct-2023 14:04:11 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 100
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 98
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 99
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLib.php on line 100
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Implicit conversion from float 8.5 to int loses precision in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1408
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:04:12 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:03 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:06 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:06:21 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:08:09 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:09:41 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[16-Oct-2023 14:10:48 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 159
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 159
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:17 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 159
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined variable $entries in C:\xampp\htdocs\scms\lib\Render.php on line 101
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 159
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Image.php on line 104
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:20 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 11
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\lib\Render.php on line 12
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 11:22:26 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:43:27 Europe/Berlin] PHP Warning:  require_once(lib/Render.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\scms\index.php on line 9
+[06-Nov-2023 12:43:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'lib/Render.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\scms\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\scms\index.php on line 9
+[06-Nov-2023 12:43:48 Europe/Berlin] PHP Warning:  require_once(lib/Render.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\scms\index.php on line 9
+[06-Nov-2023 12:43:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'lib/Render.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\scms\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\scms\index.php on line 9
+[06-Nov-2023 12:43:49 Europe/Berlin] PHP Warning:  require_once(lib/Render.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\scms\index.php on line 9
+[06-Nov-2023 12:43:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'lib/Render.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\scms\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\scms\index.php on line 9
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\library\Render.php on line 11
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\library\Render.php on line 12
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\library\Render.php on line 11
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\library\Render.php on line 12
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 12:44:24 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 12:44:25 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 12:44:25 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 12:44:25 Europe/Berlin] PHP Warning:  Undefined array key "create" in C:\xampp\htdocs\scms\library\Render.php on line 79
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$path is deprecated in C:\xampp\htdocs\scms\library\Render.php on line 11
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Render::$api is deprecated in C:\xampp\htdocs\scms\library\Render.php on line 12
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $image is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 502
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newLargestSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 850
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Optional parameter $unit declared before required parameter $newNarrowSideWidth is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 892
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Optional parameter $positionX declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Optional parameter $positionY declared before required parameter $position is implicitly treated as a required parameter in C:\xampp\htdocs\scms\vendor\PHPImageWorkshop\Core\ImageWorkshopLayer.php on line 1638
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Blog::$api is deprecated in C:\xampp\htdocs\scms\module\AbstractModule.php on line 6
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Api::$loadedModules is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 321
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  Creation of dynamic property Auth::$api is deprecated in C:\xampp\htdocs\scms\model\Auth.php on line 18
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 102
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 12:45:59 Europe/Berlin] PHP Deprecated:  ltrim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\scms\model\Api.php on line 90
+[06-Nov-2023 13:33:48 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 13:33:48 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 13:33:51 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 13:33:51 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 13:34:49 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 13:34:49 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 13:34:51 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 13:34:51 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 13:34:53 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 13:34:53 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290
+[06-Nov-2023 13:34:54 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\scms\model\Auth.php on line 67
+[06-Nov-2023 13:34:54 Europe/Berlin] PHP Warning:  Undefined array key "popupMsg" in C:\xampp\htdocs\scms\model\Api.php on line 290

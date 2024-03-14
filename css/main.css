@@ -9,9 +9,9 @@
 html{
     width: 100%;
 }
-body{    
+body{
     font-family: Helvetica;
-    width: 100%; 
+    width: 100%;
 }
 .clear {
     clear: both;
@@ -40,7 +40,7 @@ body{
     margin: 20px 0 0 0;
     padding: 1px;
 
-}    
+}
 .logo a{
     text-decoration: none;
     color: #53c28b;
@@ -77,7 +77,8 @@ body{
     margin: 5px 0 5px 0;
 }
 .menu ul li a{
-    color: #fff;;
+    color: #fff;
+    ;
     text-decoration: none;
     padding: 10px 30px;
     display: inline-block;
@@ -227,14 +228,14 @@ form .formElement .error{
     margin-bottom: 20px;
 }
 .contentWrapper .content ul li{
-    margin: 0 0 10px 0; 
+    margin: 0 0 10px 0;
 
 }
 .contentWrapper .content ul li::before{
-    content: "\2022";  
+    content: "\2022";
     font-weight: bold;
     color: #53c28b;
-    display: inline-block; 
+    display: inline-block;
     width: 1.5em;
 }
 
@@ -288,11 +289,11 @@ form .formElement .error{
 
 #cookiesPrivacyPolicyContainerWrapper{
     width:100%;
-    background:#000;                
-    text-align:center                
+    background:#000;
+    text-align:center
 }
 
-#cookiesPrivacyPolicyContainer{        
+#cookiesPrivacyPolicyContainer{
     padding:20px 0;
     overflow:hidden;
     margin:0 auto;
@@ -311,14 +312,16 @@ form .formElement .error{
 }
 
 #cookiesPrivacyPolicyContainer #cookiesPrivacyPolicyCloseBtn{
-    position:absolute; right:10px; top:10px;
+    position:absolute;
+    right:10px;
+    top:10px;
     font-weight: bold;
     font-size:16px;
     width:20px;
     height:20px;
     line-height:16px;
     text-align:center;
-    display:inline-block;     
+    display:inline-block;
     background: #0076a3;
     color:#fff;
 }
@@ -327,4 +330,58 @@ form .formElement .error{
     background: #fff;
     color:#0076a3;
     text-decoration:none;
+}
+/* blog */
+.blogEntries{
+
+}
+.blogEntries .entry{
+    border: 1px solid #ccc;
+    box-shadow: 0 9px 18px 0 rgba(0,0,0,.1);
+    float: left;
+    width: calc(33.3% - 20px);
+    margin: 20px 20px 0 0;
+    height: 500px;
+}
+.blogEntries .entry a img{
+    width: 100%;
+}
+.blogEntries .entry .entryContent{
+    padding: 10px;
+}
+.blogEntries .entry a{
+    display: block;
+    color: #010101;
+    line-height: 1.3em;
+}
+.blogEntries .entry a.title{
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px 0 10px 0;
+}
+.blogEntries .entry a.shortContent{
+    font-size: 23px;
+}
+.blogEntry img{
+    width: 100%
+}
+.blogEntry .entryContent{
+    padding: 20px;
+}
+.blogEntry p.title{
+    line-height: 1.3em;
+    font-size: 23px;
+    font-weight: bold;
+    padding: 0 0 20px 0;
+}
+@media all and (max-width: 850px) {
+    .blogEntries .entry{
+        width: calc(50% - 20px);
+    }
+}
+@media all and (max-width: 500px) {
+    .blogEntries .entry{
+        width: 100%;
+        margin-right: 0;
+    }
 }

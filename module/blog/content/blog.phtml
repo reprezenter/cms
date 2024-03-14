@@ -1,16 +1,33 @@
 <?php $entry = $api->getModule('Blog')->getEntryByUrl() ?>
 <?php if ($entry): ?>
-    <?php var_dump($entry); ?>
-    <img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" />
+    <div class="blogEntry">
+        <img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id'], 'big'); ?>" />
+        <div class="entryContent">
+            <p class="title"><?php echo $entry['title']; ?></p>
+            <?php echo $entry['content']; ?>              
+        </div>                
+    </div> 
+
 <?php else: ?>
-    <div classs="blogEntries">
+    <div class="blogEntries">
         <?php $entries = $api->getModule('Blog')->getEntries(); ?>
-        <?php foreach ($entries as $entry): ?>
-        <div class="entry">
-            <a href="/blog/<?php echo $entry['slug']; ?>.html"><img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" alt="<?php echo $entry['title']; ?>" /></a>
-            <a href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['title']; ?></a>
-            <a href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['short_content']; ?></a>            
-        </div>                      
+        <?php foreach ($entries['paginator'] as $entry): ?>
+            <div class="entry">
+                <a href="/blog/<?php echo $entry['slug']; ?>.html"><img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" alt="<?php echo $entry['title']; ?>" /></a>
+                <div class="entryContent">
+                    <a class="title" href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['title']; ?></a>
+                    <a class="shortContent" href="/blog/<?php echo $entry['slug']; ?>.html"><?php echo $entry['short_content']; ?></a>                
+                </div>                
+            </div>                      
         <?php endforeach; ?>
+        <div class="clear"></div>
     </div>
+    <viv class="blogPager">
+        <?php if ($entries['currentPage'] > 1): ?>
+            <a href="/blog?page=<?php echo $entries['currentPage'] - 1; ?>">Poprzednia</a>
+        <?php endif; ?>
+        <?php if ($entries['pagesCount'] > $entries['currentPage']): ?>
+            <a href="/blog?page=<?php echo $entries['currentPage'] + 1; ?>">Następna</a>
+        <?php endif; ?>
+    </viv>
 <?php endif; ?>

@@ -22,7 +22,10 @@ class Image {
     const ENTITY_FOLDER = 'entity';
     const ENTITY_ID_BLOG = 1;
     const TMP_SESSiON_PREFIX = 'tmp';
-    const ENTITY_1_IMAGE_WIDTH = 400;
+    const ENTITY_1_IMAGE_HEIGHT_SMALL = 150;
+    const ENTITY_1_IMAGE_WIDTH_SMALL = 200;
+    const ENTITY_1_IMAGE_HEIGHT_BIG = 1200;
+    const ENTITY_1_IMAGE_WIDTH_BIG = 900;
 
     /**
      * Sciezka do pliku zrodlowego, relatywna w sostunku do $rootDirectoryAbsolutePath

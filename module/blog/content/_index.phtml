@@ -2,7 +2,7 @@
 <br/><br/>
 <div classs="blogEntries">
     <?php $entries = $api->getModule('Blog')->getEntries(); ?>
-    <?php foreach ($entries as $entry): ?>
+    <?php foreach ($entries['paginator'] as $entry): ?>
         <table class="adminTable">
             <tr>
                 <td><img src="/<?php echo $api->getModule('Blog')->getEntryImg($entry['id']); ?>" /></td>
@@ -14,4 +14,11 @@
             </tr>                                  
         </table>                    
     <?php endforeach; ?>
+    <?php if ($entries['currentPage'] > 1): ?>
+        <a href="/admin/blog/index.html?page=<?php echo $entries['currentPage'] - 1; ?>">Poprzednia</a>
+    <?php endif; ?>
+    <?php if ($entries['pagesCount'] > $entries['currentPage']): ?>
+        <a href="/admin/blog/index.html?page=<?php echo $entries['currentPage'] + 1; ?>">Następna</a>
+    <?php endif; ?>
+
 </div>

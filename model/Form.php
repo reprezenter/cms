@@ -31,7 +31,7 @@ class Form {
             die();
         } else {
             $this->api->addSessionMsg($this->api->t('Niepoprawny login lub hasło'), 'error');
-            header('Location: /' . $this->api->getConfig()['rootFolder'] . '/login.html');
+            header('Location: /' . $this->api->getConfig()['rootFolder'] . 'login.html');
             die();
         }
     }

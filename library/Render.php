@@ -35,8 +35,13 @@ class Render {
         } else {
             $_moduleRoute = $uri;
         }
-        $moduleRoute = str_replace(array('.html'), '', $_moduleRoute);
-        if (is_numeric(array_search($moduleRoute, $moduleRutes)) && $this->api->getModule($moduleRoute)->getAllowRoute()) {            
+        if (strpos($_moduleRoute, '?')) {
+            $__moduleRoute = explode('?', $_moduleRoute)[0];
+        } else {
+            $__moduleRoute = $_moduleRoute;
+        }
+        $moduleRoute = str_replace(array('.html'), '', $__moduleRoute);
+        if (is_numeric(array_search($moduleRoute, $moduleRutes)) && $this->api->getModule($moduleRoute)->getAllowRoute()) {
             if ($isAdmin) {
                 $filename = PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $moduleRoute . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . $this->getTemplateName([$moduleRoute]);
             } else {
@@ -99,7 +104,7 @@ class Render {
         $api->setTemplateVars($fileVars);
         ob_end_clean();
         ob_start();
-        if (strpos($filename, 'ajax')) {            
+        if (strpos($filename, 'ajax')) {
             include PUBLIC_PATH . '/content/layout/empty.phtml';
         } elseif ($isAdmin) {
             include PUBLIC_PATH . '/content/layout/admin.phtml';

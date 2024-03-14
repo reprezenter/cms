@@ -3,7 +3,7 @@
 <?php $entry = $api->getModule('Blog')->getEntryByAdminUrl(); ?>
 <form name="<?php echo $name; ?>" method="POST" action="">
     <div class="formElement">
-        <label><?php echo $api->t('Tyuł'); ?></label>
+        <label><?php echo $api->t('Tytuł'); ?></label>
         <input type="text" name="title" value="<?php echo $api->getFormData($name, 'title', $entry['title']); ?>" />
         <?php if ($api->getFormErrors($name, 'title')): ?>
             <div class="error"><?php echo implode(' ', $api->getFormErrors($name, 'title')); ?></div>
