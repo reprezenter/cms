@@ -2,6 +2,7 @@
 session_start();
 define('PUBLIC_PATH', __DIR__);
 define('LOG_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR);
+define('VENDOR_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR);
 error_reporting(E_ALL ^ E_DEPRECATED);
 ini_set('display_errors', '0'); 
 ini_set('log_errors', 1);
@@ -17,7 +18,7 @@ try {
     $currentLog .= date('Y-m-d H:i:s') . ':' . PHP_EOL . $exc->__toString();
     file_put_contents($logPath, $currentLog);
     http_response_code(200);
-    include('lib' . DIRECTORY_SEPARATOR . 'error.php');
+    include('library' . DIRECTORY_SEPARATOR . 'Error.php');
     die();
 }
 

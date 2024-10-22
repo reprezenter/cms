@@ -131,7 +131,7 @@ class Api {
         $this->formError = array($name => array());
         if ($this->formSubmitted($name) && $this->formValidate($name) && !property_exists('Api', $name . 'formHandled')) {
 
-            if (strpos($name, 'module') == 0) {
+            if (strpos($name, 'module') === 0) {
                 $exploded = explode('_', $name);
                 $module = $exploded[1];
                 require_once PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . 'Form.php';
@@ -318,7 +318,11 @@ class Api {
     }
 
     public function addModule($className, $instance) {
-        $this->loadedModules[strtolower($className)] = $instance;
+        if (method_exists($instance, 'getName')) {
+            $this->loadedModules[$instance->getName()] = $instance;
+        } else {
+            $this->loadedModules[strtolower($className)] = $instance;
+        }
     }
 
     public function getModule($className) {
