@@ -18,7 +18,7 @@ class Auth {
         $this->api = $api;
         if (count($this->urlAllowed()) === 0)
             return true;
-        $urlAllowed = array_map(function($v) {
+        $urlAllowed = array_map(function ($v) {
             return str_replace('.html', '', $v);
         }, $this->urlAllowed());
         $url = ltrim(str_replace(array($this->api->getConfig()['rootFolder'], '.html'), '', $_SERVER['REQUEST_URI']), '/');
@@ -64,7 +64,7 @@ class Auth {
     }
 
     public function hasIdentity() {
-        return is_array($_SESSION['user']);
+        return isset($_SESSION['user']) && is_array($_SESSION['user']);
     }
 
     public function getIdentity() {

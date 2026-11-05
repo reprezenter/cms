@@ -6,6 +6,7 @@ class Api {
     protected $connection;
     protected $params;
     protected $path;
+    protected $layout;
     protected $template;
     protected $templateVars;
     protected $langFile;
@@ -25,11 +26,12 @@ class Api {
                 $this->config[$varName] = ${$varName};
             }
         }
-        if (isset($this->config['dbHost'])) {
+        if (isset($this->config['dbHost']) && $this->config['dbHost']) {
             $this->connection = new \PDO('mysql:host=' . $this->config['dbHost'] . ';dbname=' . $this->config['dbName'] . ';charset=utf8', $this->config['dbUser'], $this->config['dbPassword']);
         }
         $this->sessionMsgTemplate = $this->config['sessionMsgTemplate'];
         $this->authTemplate = $this->config['authTemplate'];
+        $this->layout = 'default';
     }
 
     public function setParams($params) {
@@ -42,6 +44,14 @@ class Api {
 
     public function setPath($path) {
         $this->path = $path;
+    }
+
+    public function getLayout() {
+        return $this->layout;
+    }
+
+    public function setLayout($name) {
+        $this->layout = $name;
     }
 
     public function getTemplate() {
@@ -173,9 +183,9 @@ class Api {
         return false;
     }
 
-    public function getFormConfig($moduleName = false) {
-        if ($moduleName && strpos($moduleName, 'module') == 0) {
-            $module = explode('_', $moduleName)[1];
+    public function getFormConfig($name) {
+        if (strpos($name, 'module') === 0) {
+            $module = explode('_', $name)[1];
             return include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'module' . DIRECTORY_SEPARATOR . $module . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
         } else {
             return include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
@@ -241,7 +251,7 @@ class Api {
     }
 
     public function filterForm($name) {
-        $config = include PUBLIC_PATH . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'form' . DIRECTORY_SEPARATOR . 'config.php';
+        $config = $this->getFormConfig($name);
         if (isset($config[$name]['filter']) && is_array($config[$name]['filter'])) {
             $filters = $config[$name]['filter'];
             $data = $this->getFormData($name);
@@ -287,7 +297,7 @@ class Api {
     }
 
     public function getSessionMsgTemplate() {
-        $messages = $_SESSION['popupMsg'];
+        $messages = isset($_SESSION['popupMsg']) ? $_SESSION['popupMsg'] : [];
         $api = $this;
         include $this->sessionMsgTemplate;
     }

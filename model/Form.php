@@ -11,7 +11,7 @@ class Form {
         unset($formData['password_confirm']);
         unset($formData['register']);
         $formData['password'] = md5($formData['password']);
-        $formData['role_id'] = Auth::ROLE_ID_USER;
+        $formData['role_id'] = $this->api->getAuth()::ROLE_ID_USER;
         $statement = $this->api->getConnection()->prepare("INSERT INTO user(identity, credential, role_id)
                                                      VALUES(:email, :password, :role_id)");
         $ok = $statement->execute($formData);

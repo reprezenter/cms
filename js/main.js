@@ -1,7 +1,7 @@
 var rwd = {
     init: function () {
         var hamburger = document.getElementsByClassName('hamburger');
-        if (hamburger.length != 1) {
+        if (hamburger.length !== 1) {
             return false;
         }
         hamburger[0].addEventListener('click', function (e) {

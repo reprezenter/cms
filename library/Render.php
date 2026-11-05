@@ -76,7 +76,7 @@ class Render {
         $get = filter_input_array(INPUT_GET);
         $filename .= '.phtml';
         if (!file_exists($filename)) {
-            if (isset($_GET['create']) &&  $_GET['create'] === '1') {
+            if (isset($_GET['create']) && $_GET['create'] === '1') {
                 $path = $filename;
                 $file = fopen($path, "w");
                 echo fwrite($file, '<h1></h1>' . PHP_EOL . '<p></p>');
@@ -109,7 +109,7 @@ class Render {
         } elseif ($isAdmin) {
             include PUBLIC_PATH . '/content/layout/admin.phtml';
         } else {
-            include PUBLIC_PATH . '/content/layout/default.phtml';
+            include PUBLIC_PATH . '/content/layout/' . $api->getLayout() . '.phtml';
         }
         ob_end_flush();
     }
