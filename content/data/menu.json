@@ -1,0 +1,35 @@
+{
+    "main": [
+        {
+            "title": "O nas",
+            "url": "o-nas.html"
+        },
+        {
+            "title": "Oferta",
+            "url": "oferta.html"
+        },
+        {
+            "title": "Katalog",
+            "url": "katalog.html"
+        },
+        {
+            "title": "Kontakt",
+            "url": "kontakt.html"
+        }
+    ],
+    "footer": [
+        {
+            "title": "Oferta",
+            "url": "/oferta.html"
+        },
+        {
+            "title": "Katalog",
+            "url": "/katalog.html"
+        },
+        {
+            "title": "Kontakt",
+            "url": "/kontakt.html",
+            "class": "last"
+        }
+    ]
+}
