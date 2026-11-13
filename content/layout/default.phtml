@@ -1,3 +1,26 @@
+<?php
+$menuFile = $_SERVER['DOCUMENT_ROOT'] . '/content/data/menu.json';
+
+$menuData = array(
+    'main' => array(),
+    'footer' => array()
+);
+
+if (is_file($menuFile)) {
+    $json = file_get_contents($menuFile);
+    $data = json_decode($json, true);
+
+    if (is_array($data)) {
+        if (isset($data['main']) && is_array($data['main'])) {
+            $menuData['main'] = $data['main'];
+        }
+
+        if (isset($data['footer']) && is_array($data['footer'])) {
+            $menuData['footer'] = $data['footer'];
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="<?php echo $api->langShort(); ?>">
     <head>
@@ -25,10 +48,13 @@
                 <a class="hamburger" href="#"><img  src="/img/hamburger.png" alt="menu" /></a>
                 <div class="menu">                
                     <ul>
-                        <li><a title="O nas" href="o-nas.html">O nas</a></li>
-                        <li><a title="Oferta" href="oferta.html">Oferta</a></li>
-                        <li><a title="Katalog" href="katalog.html">Katalog</a></li>
-                        <li><a title="Kontakt" href="kontakt.html">Kontakt</a></li>
+                        <?php foreach ($menuData['main'] as $item): ?>
+                            <li<?php if (!empty($item['class'])): ?> class="<?php echo htmlspecialchars($item['class'], ENT_QUOTES, 'UTF-8'); ?>"<?php endif; ?>>
+                                <a href="<?php echo htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8'); ?>">
+                                    <?php echo htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8'); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div class="clear"></div>
@@ -45,9 +71,13 @@
                 <p class="copy">Copyright &copy; <?php echo date('Y'); ?> <?php echo $api->getConfig()['defaultPageTitle']; ?></p>
                 <div class="footerMenu">                
                     <ul>
-                        <li><a title="Oferta" href="/oferta.html">Oferta</a></li>
-                        <li><a title="Katalog" href="/katalog.html">Katalog</a></li>
-                        <li class="last"><a title="Kontakt" href="/kontakt.html">Kontakt</a></li>                        
+                        <?php foreach ($menuData['footer'] as $item): ?>
+                            <li<?php if (!empty($item['class'])): ?> class="<?php echo htmlspecialchars($item['class'], ENT_QUOTES, 'UTF-8'); ?>"<?php endif; ?>>
+                                <a href="<?php echo htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8'); ?>">
+                                    <?php echo htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8'); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>                      
                     </ul>
                     <div class="clear"></div>
                 </div>
